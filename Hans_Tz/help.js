@@ -250,7 +250,7 @@ Join our channel for updates:`;
                     isForwarded: true,
                     forwardedNewsletterMessageInfo: {
                         newsletterJid: '120363421513037430@newsletter',
-                        newsletterName: 'KnightBot MD',
+                        newsletterName: 'Vortex Xmd',
                         serverMessageId: -1
                     }
                 }
