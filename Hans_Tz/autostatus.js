@@ -2,6 +2,9 @@ const fs = require('fs');
 const path = require('path');
 const isOwnerOrSudo = require('../lib/isOwner');
 
+// Import emojis from your autoreact.js file
+const { emojis } = require('../autoreact.js'); // Added this line
+
 const channelInfo = {
     contextInfo: {
         forwardingScore: 1,
@@ -138,12 +141,28 @@ function isStatusReactionEnabled() {
     }
 }
 
+// Function to get random emoji from imported emojis
+function getRandomEmoji() {
+    try {
+        if (emojis && emojis.length > 0) {
+            const randomIndex = Math.floor(Math.random() * emojis.length);
+            return emojis[randomIndex];
+        }
+    } catch (error) {
+        console.error('Error getting random emoji:', error);
+    }
+    return '💚'; // Fallback emoji
+}
+
 // Function to react to status using proper method
 async function reactToStatus(sock, statusKey) {
     try {
         if (!isStatusReactionEnabled()) {
             return;
         }
+
+        // Get random emoji
+        const randomEmoji = getRandomEmoji();
 
         // Use the proper relayMessage method for status reactions
         await sock.relayMessage(
@@ -156,7 +175,7 @@ async function reactToStatus(sock, statusKey) {
                         participant: statusKey.participant || statusKey.remoteJid,
                         fromMe: false
                     },
-                    text: '🌴'
+                    text: randomEmoji // Changed from '🌴' to randomEmoji
                 }
             },
             {
@@ -258,4 +277,4 @@ async function handleStatusUpdate(sock, status) {
 module.exports = {
     autoStatusCommand,
     handleStatusUpdate
-}; 
+};
