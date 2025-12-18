@@ -104,7 +104,7 @@ async function helpCommand(sock, chatId, message) {
 > ➤ ┃ igs <insta link>
 > ➤ ┃ igsc <insta link>
 ━━━━━━━━━━━━━━━━━━━━┛
-${readmore}
+
 
 ━━━━━━━━━━━━━━━━━━━━┓
  \`🖼️ *Pies Commands*:\`
@@ -211,7 +211,7 @@ ${readmore}
 > ➤ ┃ passed 
 > ➤ ┃ triggered
 ━━━━━━━━━━━━━━━━━━━━┛
-${readmore}
+
 
 ━━━━━━━━━━━━━━━━━━━━┓
         \`🖼️ *ANIME*:\`
